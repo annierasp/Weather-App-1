@@ -1,0 +1,78 @@
+body {
+  background-color: #c1cfea;
+}
+
+.container {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.weather-app {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.search-bar {
+  min-height: 100px;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 30px;
+  background-color: #fff;
+  margin: 40px 0 25px 0;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.current-weather {
+  min-height: 200px;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 235, 170, 1) 100%
+  );
+  margin: 25px 0 25px 0;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.current-temperature {
+  font-size: 30px;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 0;
+  font-weight: normal;
+  color: #757575;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 16px;
+  color: #757575;
+}
+
+.units {
+  font-size: 16px;
+  position: relative;
+  top: -10px;
+}
+
+.current-weather-image {
+  max-width: 100%;
+}
+
+.forecast {
+  min-height: 200px;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 30px;
+  background-color: #fff;
+  margin: 0 0 40px 0;
+  padding: 20px 0;
+  text-align: center;
+}
+
+small {
+  display: block;
+  text-align: center;
+}
