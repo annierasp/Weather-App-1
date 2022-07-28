@@ -4,10 +4,69 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="src/style.css" />
     <title>Document</title>
   </head>
   <body>
+    <div class="container">
+      <div class="weather-app">
+        <div class="search-bar row">
+          <div class="col">
+            <form id="search-city">
+              <input
+                class="search"
+                id="search-city-name"
+                type="text"
+                placeholder="Enter a city"
+              />
+              <input class="search-city-submit" type="submit" value="Search" />
+            </form>
+          </div>
+        </div>
+        <div class="current-weather row">
+          <div class="col-4">
+            <span id="current-teperature">23</span>
+            <a class="units" id="celsius"> °C</a>
+            |
+            <a class="units" id="fahrenheit">°F</a>
+            <h2>Kyiv</h2>
+            <h3>Saturday 13:55</h3>
+          </div>
+          <div class="col-4">
+            <p>
+              Humidity: <span id="humidity"></span>%
+              <br />
+              Wind: <span id="wind"></span> km/h
+            </p>
+          </div>
+          <div class="col-4">current weather image</div>
+        </div>
+        <div class="forecast row">
+          <div class="col">
+            <p>SUN <br />☁ <br />17°</p>
+          </div>
+          <div class="col">
+            <p>MON <br />☁ <br />17°</p>
+          </div>
+          <div class="col">
+            <p>TUE <br />☁ <br />17°</p>
+          </div>
+          <div class="col">
+            <p>WED <br />☁ <br />17°</p>
+          </div>
+          <div class="col">
+            <p>THU <br />☁ <br />17°</p>
+          </div>
+        </div>
+        <small>Open-source code by Ganna Yushchyshyna</small>
+      </div>
+    </div>
     <script src="src/app.js"></script>
   </body>
 </html>
