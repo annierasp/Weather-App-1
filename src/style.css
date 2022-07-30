@@ -1,5 +1,5 @@
 body {
-  background-color: #c1cfea;
+  background-color: #ebebeb;
 }
 
 .container {
@@ -37,17 +37,13 @@ body {
   min-height: 200px;
   border: 1px solid rgb(225, 225, 225);
   border-radius: 30px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 235, 170, 1) 100%
-  );
+  background: #fff;
   margin: 25px 0 25px 0;
   padding: 20px 0;
-  text-align: center;
 }
 
 .current-temperature {
+  text-align: center;
   font-size: 30px;
 }
 
@@ -69,6 +65,9 @@ h3 {
   font-weight: normal;
   font-size: 16px;
   color: #757575;
+}
+
+h3::first-letter {
   text-transform: capitalize;
 }
 

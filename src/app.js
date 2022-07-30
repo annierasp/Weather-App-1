@@ -39,6 +39,8 @@ function search(city) {
 
 function showTemperature(response) {
   let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#current-weather-image");
+  let backgroundGradient = document.querySelector("#current-weather");
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -46,6 +48,27 @@ function showTemperature(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+  if (response.data.weather[0].main === "Clear") {
+    backgroundGradient.style.background =
+      "linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 235, 170, 1) 100%)";
+  } else if (
+    response.data.weather[0].main === "Clouds" ||
+    response.data.weather[0].main === "Snow" ||
+    response.data.weather[0].main === "Drizzle" ||
+    response.data.weather[0].main === "Rain"
+  ) {
+    backgroundGradient.style.background =
+      "linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(116,178,247,1) 100%)";
+  } else if (response.data.weather[0].main === "Thunderstorm") {
+    backgroundGradient.style.background =
+      "linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(3,41,83,1) 100%)";
+  }
+  console.log(response.data);
 }
 
 search("Kyiv");
