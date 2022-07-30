@@ -77,6 +77,16 @@ h3::first-letter {
   top: -10px;
 }
 
+.active {
+  color: #000;
+  cursor: text;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: #000;
+}
+
 .current-weather-image {
   max-width: 100%;
 }

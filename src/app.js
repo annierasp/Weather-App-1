@@ -27,9 +27,6 @@ function searchCityValue(event) {
   search(city);
 }
 
-let citySearch = document.querySelector("#search-city");
-citySearch.addEventListener("submit", searchCityValue);
-
 function search(city) {
   let apiKey = "080cbfa2309f6d5006d04e646210a21b";
   let units = "metric";
@@ -41,6 +38,7 @@ function showTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#current-weather-image");
   let backgroundGradient = document.querySelector("#current-weather");
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -68,7 +66,34 @@ function showTemperature(response) {
     backgroundGradient.style.background =
       "linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(3,41,83,1) 100%)";
   }
-  console.log(response.data);
 }
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperature = document.querySelector("#current-temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperature = document.querySelector("#current-temperature");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+}
+
+celsiusTemperature = null;
+
+let citySearch = document.querySelector("#search-city");
+citySearch.addEventListener("submit", searchCityValue);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 search("Kyiv");
