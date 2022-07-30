@@ -19,6 +19,8 @@ function showTemperature(response) {
     response.data.main.temp
   );
   document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
 }
 
 search("Kyiv");
