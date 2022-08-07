@@ -101,6 +101,11 @@ h3::first-letter {
   text-align: center;
 }
 
+.forecast .row {
+  padding: 20px 0;
+  max-width: 450px;
+}
+
 small {
   display: block;
   text-align: center;

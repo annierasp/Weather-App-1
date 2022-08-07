@@ -21,6 +21,24 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row align-items-center">`;
+  let days = ["MON", "TUE", "WED", "THU", "FRI"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+            <div class="date">${day}</div>
+            <img src="" alt="" class="forecast-icon" id="forecast-icon" />
+            <div class="forecast-temperature">17°</div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 function searchCityValue(event) {
   event.preventDefault();
   let city = document.querySelector("#search-city-name").value;
@@ -97,3 +115,4 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 search("Kyiv");
+displayForecast();
