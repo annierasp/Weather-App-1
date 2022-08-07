@@ -21,7 +21,8 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row align-items-center">`;
   let days = ["MON", "TUE", "WED", "THU", "FRI"];
@@ -34,9 +35,15 @@ function displayForecast() {
             <div class="forecast-temperature">17°</div>
           </div>`;
   });
-
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "080cbfa2309f6d5006d04e646210a21b";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function searchCityValue(event) {
@@ -84,6 +91,8 @@ function showTemperature(response) {
     backgroundGradient.style.background =
       "linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(3,41,83,1) 100%)";
   }
+
+  getForecast(response.data.coord);
 }
 
 function showFahrenheitTemperature(event) {
@@ -115,4 +124,3 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsiusTemperature);
 
 search("Kyiv");
-displayForecast();
